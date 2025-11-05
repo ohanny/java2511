@@ -23,6 +23,19 @@ public class BookingService { // stateless
         return booking;
 	}
 	*/
+	
+	public Booking[] findBookingByCustomer(int customerId) {
+		Customer cust1 = new Customer(customerId, "Émile", "Lampion", "emile@example.com");
+		Event event1 = new Event(1, "Pièce de théâtre'Le Misanthrope'", "2025-10-24 20:30:00", 20);
+		Event event2 = new Event(2, "ConférenceTech & Innovation", "2025-10-28 14:00:00", 23);
+		Ticket[] tickets1 = new Ticket[] { new Ticket(event1, cust1) };
+		Ticket[] tickets2 = new Ticket[] { new Ticket(event2, cust1) };
+		Booking booking1 = new Booking(1, cust1, event1, tickets1, "2025-09-27 10:52:15", "RES-1", Booking.STATUS_BOOKED);
+		Booking booking2 = new Booking(2, cust1, event2, tickets2, "2025-10-04 15:02:31", "RES-2", Booking.STATUS_BOOKED);
+		Booking[] bookings = new Booking[] { booking1, booking2 };
+	
+		return bookings;
+	}
 
 	public Booking bookTicket(Event event, Customer customer) {		
 		return bookTickets(event, customer, 1);

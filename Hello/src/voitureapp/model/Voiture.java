@@ -31,7 +31,7 @@ public class Voiture extends Vehicule {
 		position += delta;
 	}
 	
-	void avancer() {
+	public final void avancer() {
 		int delta = 5;
 		if (delta < 0) return;
 		position += delta;
@@ -39,6 +39,16 @@ public class Voiture extends Vehicule {
 		rouler();
 		//roulerInternal();
 		
+	}
+	
+	@Override
+	public void rouler() {
+		super.rouler();
+	}
+	
+	public void roulerSurLaNeige() {
+		rouler();
+		System.out.println("on glisse sur la neige");
 	}
 	
 }

@@ -16,6 +16,21 @@ public class Booking {
 	//Ticket ticket;
 	private Ticket[] tickets;
 	
+	public Booking() {
+		super();
+	}
+
+	public Booking(int id, Customer customer, Event event, Ticket[] tickets,  String bookingDate, String bookingNumber, String status) {
+		super();
+		this.id = id;
+		this.bookingNumber = bookingNumber;
+		this.bookingDate = bookingDate;
+		this.status = status;
+		this.event = event;
+		this.customer = customer;
+		this.tickets = tickets;
+	}
+	
 	public int getId() {
 		return id;
 	}

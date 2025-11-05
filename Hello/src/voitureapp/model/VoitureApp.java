@@ -51,7 +51,7 @@ public class VoitureApp {
 		
 		String[] words = texte.split(" ");
 		for (String word : words) {
-			System.out.println(word);
+			//System.out.println(word);
 		}
 		
 		
@@ -77,8 +77,19 @@ public class VoitureApp {
 //        System.out.println("Date : " + booking.bookingDate);
 
 
+		System.out.println("--------------------------------------");
+		
 		v1.rouler();
 		
+		
+		Avion avion = new Avion("A320");
+		avion.rouler();
+		
+		avion.setAltitude(10);
+		avion.rouler();
+		
+		Cabriolet cab = new Cabriolet();
+		cab.avancer();
 	}
 	
 }

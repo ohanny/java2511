@@ -6,6 +6,18 @@ public class Event {
 	private String scheduledAt;
 	private double price;
 	
+	public Event() {
+		super();
+	}
+
+	public Event(int id, String name, String scheduledAt, double price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.scheduledAt = scheduledAt;
+		this.price = price;
+	}
+
 	public double getPrice() {
 		return price;
 	}
