@@ -1,5 +1,7 @@
 package org.fulldev.ticketing.service;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.fulldev.ticketing.exception.BookingException;
 import org.fulldev.ticketing.model.Booking;
@@ -8,6 +10,7 @@ import org.fulldev.ticketing.model.Customer;
 import org.fulldev.ticketing.model.Event;
 import org.fulldev.ticketing.model.Ticket;
 import org.fulldev.ticketing.printer.ConsoleTicketPrinter;
+import org.fulldev.ticketing.printer.PdfTicketPrinter;
 import org.fulldev.ticketing.printer.TicketPrinter;
 
 public class BookingService { // stateless
@@ -24,11 +27,17 @@ public class BookingService { // stateless
 	};
 	
 	private final static Booking[] BOOKINGS = new Booking[] {
-		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), new Ticket[] { TICKETS[0] }, "2025-09-27 10:52:15", "RES-1", BookingStatus.STATUS_PAID),
-		new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), new Ticket[] { TICKETS[1] }, "2025-10-04 15:02:31", "RES-2", BookingStatus.STATUS_BOOKED),
-		new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), new Ticket[] { TICKETS[2] }, "2025-10-05 08:14:17", "RES-3", BookingStatus.STATUS_BOOKED)
+		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), List.of(TICKETS[0]), "2025-09-27 10:52:15", "RES-1", BookingStatus.STATUS_PAID),
+		new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), List.of(TICKETS[1]), "2025-10-04 15:02:31", "RES-2", BookingStatus.STATUS_BOOKED),
+		new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), List.of(TICKETS[2]), "2025-10-05 08:14:17", "RES-3", BookingStatus.STATUS_BOOKED)
 	};
 	
+//	private final static Booking[] BOOKINGS = new Booking[] {
+//			new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), new Ticket[] { TICKETS[0] }, "2025-09-27 10:52:15", "RES-1", BookingStatus.STATUS_PAID),
+//			new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), new Ticket[] { TICKETS[1] }, "2025-10-04 15:02:31", "RES-2", BookingStatus.STATUS_BOOKED),
+//			new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), new Ticket[] { TICKETS[2] }, "2025-10-05 08:14:17", "RES-3", BookingStatus.STATUS_BOOKED)
+//	};
+//	
 	
 	/*
 	Booking bookTicket(Event event, Customer customer) {
@@ -99,10 +108,20 @@ public class BookingService { // stateless
 		
         Booking booking = createBooking(event, customer);
 
-        booking.setTickets(new Ticket[numberOfTickets]);
-        for (int i = 0; i < booking.getTickets().length; i++) {
-			booking.getTickets()[i] = new Ticket(event, customer);
+        for (int i = 0; i < numberOfTickets; i++) {
+			booking.addTicket(new Ticket(event, customer));
 		}
+
+        //        List<Ticket> tickets = new ArrayList<>();
+//        for (int i = 0; i < numberOfTickets; i++) {
+//        	tickets.add(new Ticket(event, customer));
+//        }
+//        booking.setTickets(tickets);
+        
+//        booking.setTickets(new Ticket[numberOfTickets]);
+//        for (int i = 0; i < booking.getTickets().length; i++) {
+//        	booking.getTickets()[i] = new Ticket(event, customer);
+//        }
         
         TicketPrinter.showPrinterInfo();        
         

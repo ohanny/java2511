@@ -40,7 +40,7 @@ public class BookTicketView extends BaseView {
 	        // métier : réserver un billet
 	        BookingService service = new BookingService();
 	        //Booking booking = service.bookTicket(javaDay, cust);
-	        Booking booking = service.bookTickets(javaDay, null, nbOfTickets);
+	        Booking booking = service.bookTickets(javaDay, cust, nbOfTickets);
 	        //Ticket ticket = service.ticket;
 	        //Ticket createdTicket = 
 	        
@@ -52,7 +52,7 @@ public class BookTicketView extends BaseView {
 	        
 	        System.out.println("Prix de l'événement : " + javaDay.getPrice());
 	        
-	        System.out.println("Nombre de billets : " + booking.getTickets().length);
+	        System.out.println("Nombre de billets : " + booking.getTickets().size());
 	        for (Ticket ticket : booking.getTickets()) {
 	        	System.out.println("  - " + ticket.getId());			
 			}

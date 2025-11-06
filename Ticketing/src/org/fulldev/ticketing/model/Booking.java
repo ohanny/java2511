@@ -1,5 +1,8 @@
 package org.fulldev.ticketing.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Booking {
 		
 	private int id;
@@ -10,13 +13,14 @@ public class Booking {
 	private Event event;
 	private Customer customer;
 	//Ticket ticket;
-	private Ticket[] tickets;
+	private List<Ticket> tickets;// = new ArrayList<>();
+	//private List<Ticket> tickets = new ArrayList<>();
 	
 	public Booking() {
 		super();
 	}
 
-	public Booking(int id, Customer customer, Event event, Ticket[] tickets,  String bookingDate, String bookingNumber, BookingStatus status) {
+	public Booking(int id, Customer customer, Event event, List<Ticket> tickets,  String bookingDate, String bookingNumber, BookingStatus status) {
 		super();
 		this.id = id;
 		this.bookingNumber = bookingNumber;
@@ -25,6 +29,14 @@ public class Booking {
 		this.event = event;
 		this.customer = customer;
 		this.tickets = tickets;
+	}
+	
+	
+	public void addTicket(Ticket ticket) {
+		if (this.tickets == null) {
+			this.tickets = new ArrayList<>();
+		}
+		this.tickets.add(ticket);
 	}
 	
 	public int getId() {
@@ -63,10 +75,10 @@ public class Booking {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public Ticket[] getTickets() {
+	public List<Ticket> getTickets() {
 		return tickets;
 	}
-	public void setTickets(Ticket[] tickets) {
+	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
 	}
 }
