@@ -1,9 +1,9 @@
 package org.fulldev.ticketing.model;
 
-public interface BookingStatus {
+public enum BookingStatus {
 
-	String STATUS_BOOKED = "BOOKED";
-	String STATUS_PAID = "PAID";
-	String STATUS_CANCELLED = "CANCELLED";
+	STATUS_BOOKED, 
+	STATUS_PAID,
+	STATUS_CANCELLED;
 
 }

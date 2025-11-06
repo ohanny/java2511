@@ -8,6 +8,20 @@ import java.util.Scanner;
 public class VoitureApp {
 
 	public static void main(String[] args) {
+		//Vehicule veh = new Avion("A320");
+		Vehicule veh = new Voiture();
+		
+		// ...
+		
+		if (veh instanceof Voiture v) {
+			//Voiture v = (Voiture)veh;
+			System.out.println(v);			
+		}
+		
+		System.out.println("terminé");
+	}
+	
+	public static void main3(String[] args) {
 		Country c1 = new Country("fr", "France");
 		Country2 c2 = new Country2("fr", "France");
 		

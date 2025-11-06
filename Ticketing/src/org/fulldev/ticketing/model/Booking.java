@@ -5,7 +5,7 @@ public class Booking {
 	private int id;
 	private String bookingNumber;
 	private String bookingDate;
-	private String status;
+	private BookingStatus status;
 
 	private Event event;
 	private Customer customer;
@@ -16,7 +16,7 @@ public class Booking {
 		super();
 	}
 
-	public Booking(int id, Customer customer, Event event, Ticket[] tickets,  String bookingDate, String bookingNumber, String status) {
+	public Booking(int id, Customer customer, Event event, Ticket[] tickets,  String bookingDate, String bookingNumber, BookingStatus status) {
 		super();
 		this.id = id;
 		this.bookingNumber = bookingNumber;
@@ -45,10 +45,10 @@ public class Booking {
 	public void setBookingDate(String bookingDate) {
 		this.bookingDate = bookingDate;
 	}
-	public String getStatus() {
+	public BookingStatus getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(BookingStatus status) {
 		this.status = status;
 	}
 	public Event getEvent() {

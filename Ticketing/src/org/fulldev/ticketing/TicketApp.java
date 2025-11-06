@@ -6,21 +6,17 @@ import org.fulldev.ticketing.view.ViewManager;
 
 public class TicketApp {
 	public static void main(String[] args) {
-		ViewManager manager = new ViewManager();
-		manager.showView(new BookTicketView());
-		manager.showView(new BookingListView());
-		manager.showView(new HelpView());
-		//manager.showView(new BaseView("xxx"));
+		try {
+			ViewManager manager = new ViewManager();
+			manager.showView(new BookTicketView());
+			manager.showView(new BookingListView());
+			manager.showView(new HelpView());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		/*
-		BookTicketView.showHelp();
+		System.out.println("shutdown");
 		
-		BookTicketView view1 = new BookTicketView();
-		BookingListView view2 = new BookingListView();
-		
-		view1.show();
-		view2.show();
-		*/
 	}
 	
 	/*

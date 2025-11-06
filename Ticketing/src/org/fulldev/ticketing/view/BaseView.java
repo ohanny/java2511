@@ -21,4 +21,8 @@ public abstract class BaseView {
 		System.out.println("-----------------------------------");
 	}
 	
+	public String getDescription() {
+		return null;
+	}
+	
 }

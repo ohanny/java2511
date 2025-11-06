@@ -19,4 +19,8 @@ public class HelpView extends BaseView {
 		System.out.println("Bon spectacle !");		
 	}
 
+	@Override
+	public String getDescription() {
+		return "La vue d'aide";
+	}
 }

@@ -1,6 +1,7 @@
 package org.fulldev.ticketing.service;
 import java.util.Arrays;
 
+import org.fulldev.ticketing.exception.BookingException;
 import org.fulldev.ticketing.model.Booking;
 import org.fulldev.ticketing.model.BookingStatus;
 import org.fulldev.ticketing.model.Customer;
@@ -23,7 +24,7 @@ public class BookingService { // stateless
 	};
 	
 	private final static Booking[] BOOKINGS = new Booking[] {
-		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), new Ticket[] { TICKETS[0] }, "2025-09-27 10:52:15", "RES-1", BookingStatus.STATUS_BOOKED),
+		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), new Ticket[] { TICKETS[0] }, "2025-09-27 10:52:15", "RES-1", BookingStatus.STATUS_PAID),
 		new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), new Ticket[] { TICKETS[1] }, "2025-10-04 15:02:31", "RES-2", BookingStatus.STATUS_BOOKED),
 		new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), new Ticket[] { TICKETS[2] }, "2025-10-05 08:14:17", "RES-3", BookingStatus.STATUS_BOOKED)
 	};
@@ -86,12 +87,16 @@ public class BookingService { // stateless
 		return Arrays.copyOf(bookings, count);
 	}
 	
-	public Booking bookTicket(Event event, Customer customer) {		
+	public Booking bookTicket(Event event, Customer customer) throws BookingException {		
 		return bookTickets(event, customer, 1);
 	}
 		
 	// plusieurs billets pour le même événement sélectionné 
-	public Booking bookTickets(Event event, Customer customer, int numberOfTickets) {
+	public Booking bookTickets(Event event, Customer customer, int numberOfTickets) throws BookingException {
+		if (event == null || customer == null) {
+			throw new BookingException("Événement ou client manquant.");
+		}
+		
         Booking booking = createBooking(event, customer);
 
         booking.setTickets(new Ticket[numberOfTickets]);
@@ -121,7 +126,7 @@ public class BookingService { // stateless
 	}
 	
 	// plusieurs billets pour des événements différents
-	public Booking[] bookTickets(Event[] events, Customer customer, int[] numberOfTicketsArray) {
+	public Booking[] bookTickets(Event[] events, Customer customer, int[] numberOfTicketsArray) throws BookingException {
 		int nbOfBookings = events.length;
 		Booking[] bookings = new Booking[nbOfBookings];
 		for (int i = 0; i < bookings.length; i++) {

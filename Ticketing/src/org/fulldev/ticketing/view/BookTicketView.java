@@ -1,4 +1,5 @@
 package org.fulldev.ticketing.view;
+import org.fulldev.ticketing.exception.BookingException;
 import org.fulldev.ticketing.model.Booking;
 import org.fulldev.ticketing.model.Customer;
 import org.fulldev.ticketing.model.Event;
@@ -20,39 +21,49 @@ public class BookTicketView extends BaseView {
 	public void renderBody() {
 		//super.show();
 		
-		// saisie utilisateur
-		Event javaDay = new Event();
-        javaDay.setName("Java Day");
-        javaDay.setId(23);
-        javaDay.setPrice(15.0);
-        javaDay.setScheduledAt("2025-12-20 14:00");
-
-        Customer cust = new Customer();
-        cust.setId(27);
-        cust.setFirstName("Émile");
-        cust.setLastName("Lampion");
-        cust.setEmail("emile@mail.com");
-        
-        int nbOfTickets = 2;
-        
-        // métier : réserver un billet
-        BookingService service = new BookingService();
-        //Booking booking = service.bookTicket(javaDay, cust);
-        Booking booking = service.bookTickets(javaDay, cust, nbOfTickets);
-        //Ticket ticket = service.ticket;
-        //Ticket createdTicket = 
-        
-        // affiche les informations du billet
-        System.out.println("Ticket n° " +  booking.getBookingNumber() + " pour " + booking.getEvent().getName());
-        System.out.println("Client : " + booking.getCustomer().getFirstName() + " " + booking.getCustomer().getLastName());
-        System.out.println("Statut : " + booking.getStatus());
-        System.out.println("Date : " + booking.getBookingDate());
-        
-        System.out.println("Prix de l'événement : " + javaDay.getPrice());
-        
-        System.out.println("Nombre de billets : " + booking.getTickets().length);
-        for (Ticket ticket : booking.getTickets()) {
-        	System.out.println("  - " + ticket.getId());			
+		try {
+			// saisie utilisateur
+			Event javaDay = new Event();
+	        javaDay.setName("Java Day");
+	        javaDay.setId(23);
+	        javaDay.setPrice(15.0);
+	        javaDay.setScheduledAt("2025-12-20 14:00");
+	
+	        Customer cust = new Customer();
+	        cust.setId(27);
+	        cust.setFirstName("Émile");
+	        cust.setLastName("Lampion");
+	        cust.setEmail("emile@mail.com");
+	        
+	        int nbOfTickets = 2;
+	        
+	        // métier : réserver un billet
+	        BookingService service = new BookingService();
+	        //Booking booking = service.bookTicket(javaDay, cust);
+	        Booking booking = service.bookTickets(javaDay, null, nbOfTickets);
+	        //Ticket ticket = service.ticket;
+	        //Ticket createdTicket = 
+	        
+	        // affiche les informations du billet
+	        System.out.println("Ticket n° " +  booking.getBookingNumber() + " pour " + booking.getEvent().getName());
+	        System.out.println("Client : " + booking.getCustomer().getFirstName() + " " + booking.getCustomer().getLastName());
+	        System.out.println("Statut : " + booking.getStatus());
+	        System.out.println("Date : " + booking.getBookingDate());
+	        
+	        System.out.println("Prix de l'événement : " + javaDay.getPrice());
+	        
+	        System.out.println("Nombre de billets : " + booking.getTickets().length);
+	        for (Ticket ticket : booking.getTickets()) {
+	        	System.out.println("  - " + ticket.getId());			
+			}
+		} catch (BookingException e) {
+			System.out.println("Veuillez renseigner l'événement");
 		}
 	}
+	
+	@Override
+	public String getDescription() {
+		return "Réserver un billet";
+	}
+
 }

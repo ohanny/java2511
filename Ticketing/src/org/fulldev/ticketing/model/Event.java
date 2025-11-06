@@ -1,5 +1,7 @@
 package org.fulldev.ticketing.model;
 
+import org.fulldev.ticketing.exception.InvalidPriceException;
+
 public class Event {
 	private int id;
 	private String name;
@@ -27,7 +29,9 @@ public class Event {
 			this.price = price;			
 		}
 		else {
-			System.err.println("Le prix renseigné est incorrect");
+			//System.err.println("Le prix renseigné est incorrect");
+			//throw new IllegalArgumentException("Le prix ne peut pas être négatif !");
+			throw new InvalidPriceException("Le prix ne peut pas être négatif !");
 		}
 	}
 

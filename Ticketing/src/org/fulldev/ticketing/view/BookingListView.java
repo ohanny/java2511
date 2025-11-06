@@ -33,4 +33,9 @@ public class BookingListView extends BaseView {
 		}
 	
 	}
+	
+	@Override
+	public String getDescription() {
+		return "Afficher les réservations utilisateur";
+	}
 }
