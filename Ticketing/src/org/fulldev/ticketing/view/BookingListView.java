@@ -12,7 +12,10 @@ public class BookingListView extends BaseView {
 	}
 
 	@Override
-	public void show() {
+	public void renderBody() {
+		// afficher le titre
+		//super.show();
+		
         Customer cust = new Customer();
         cust.setId(1);
         cust.setFirstName("Émile");
@@ -23,9 +26,6 @@ public class BookingListView extends BaseView {
 		BookingService service = new BookingService();
 		//Booking[] bookings = service.findBookingByCustomer(1);
 		Booking[] bookings = service.findBookingByCustomer(cust);
-		
-		// afficher le titre
-		super.show();
 		
 		// afficher les réservations
 		for (Booking b : bookings) {

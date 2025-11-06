@@ -9,4 +9,5 @@ public class ViewManager {
 			System.err.println("Erreur : la vue n'existe pas");
 		}
 	}
+	
 }

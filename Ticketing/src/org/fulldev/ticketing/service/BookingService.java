@@ -2,9 +2,12 @@ package org.fulldev.ticketing.service;
 import java.util.Arrays;
 
 import org.fulldev.ticketing.model.Booking;
+import org.fulldev.ticketing.model.BookingStatus;
 import org.fulldev.ticketing.model.Customer;
 import org.fulldev.ticketing.model.Event;
 import org.fulldev.ticketing.model.Ticket;
+import org.fulldev.ticketing.printer.ConsoleTicketPrinter;
+import org.fulldev.ticketing.printer.TicketPrinter;
 
 public class BookingService { // stateless
 	
@@ -20,9 +23,9 @@ public class BookingService { // stateless
 	};
 	
 	private final static Booking[] BOOKINGS = new Booking[] {
-		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), new Ticket[] { TICKETS[0] }, "2025-09-27 10:52:15", "RES-1", Booking.STATUS_BOOKED),
-		new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), new Ticket[] { TICKETS[1] }, "2025-10-04 15:02:31", "RES-2", Booking.STATUS_BOOKED),
-		new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), new Ticket[] { TICKETS[2] }, "2025-10-05 08:14:17", "RES-3", Booking.STATUS_BOOKED)
+		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), new Ticket[] { TICKETS[0] }, "2025-09-27 10:52:15", "RES-1", BookingStatus.STATUS_BOOKED),
+		new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), new Ticket[] { TICKETS[1] }, "2025-10-04 15:02:31", "RES-2", BookingStatus.STATUS_BOOKED),
+		new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), new Ticket[] { TICKETS[2] }, "2025-10-05 08:14:17", "RES-3", BookingStatus.STATUS_BOOKED)
 	};
 	
 	
@@ -71,6 +74,8 @@ public class BookingService { // stateless
 	}
 	
 	public Booking[] findBookingByCustomer(Customer customer) {
+		System.err.println("Recherche des résa pour : " + customer);
+		
 		Booking[] bookings = new Booking[BOOKINGS.length];
 		int count = 0;
 		for (Booking b : BOOKINGS) {
@@ -94,6 +99,13 @@ public class BookingService { // stateless
 			booking.getTickets()[i] = new Ticket(event, customer);
 		}
         
+        TicketPrinter.showPrinterInfo();        
+        
+        TicketPrinter printer = new ConsoleTicketPrinter();
+        for (Ticket ticket : booking.getTickets()) {
+        	printer.printTicket(ticket);
+        }
+        
         return booking;
 	}
 
@@ -104,7 +116,7 @@ public class BookingService { // stateless
         booking.setBookingDate("2025-11-04 14:24");
         booking.setEvent(event);
         booking.setCustomer(customer);
-        booking.setStatus(Booking.STATUS_BOOKED);
+        booking.setStatus(BookingStatus.STATUS_BOOKED);
 		return booking;
 	}
 	

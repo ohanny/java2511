@@ -17,8 +17,8 @@ public class BookTicketView extends BaseView {
 	}
 	
 	@Override
-	public void show() {
-		super.show();
+	public void renderBody() {
+		//super.show();
 		
 		// saisie utilisateur
 		Event javaDay = new Event();

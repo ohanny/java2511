@@ -1,6 +1,7 @@
 package org.fulldev.ticketing;
 import org.fulldev.ticketing.view.BookTicketView;
 import org.fulldev.ticketing.view.BookingListView;
+import org.fulldev.ticketing.view.HelpView;
 import org.fulldev.ticketing.view.ViewManager;
 
 public class TicketApp {
@@ -8,6 +9,8 @@ public class TicketApp {
 		ViewManager manager = new ViewManager();
 		manager.showView(new BookTicketView());
 		manager.showView(new BookingListView());
+		manager.showView(new HelpView());
+		//manager.showView(new BaseView("xxx"));
 		
 		/*
 		BookTicketView.showHelp();

@@ -1,11 +1,7 @@
 package org.fulldev.ticketing.model;
 
 public class Booking {
-	
-	public final static String STATUS_BOOKED = "BOOKED";
-	public final static String STATUS_PAID = "PAID";
-	public final static String STATUS_CANCELLED = "CANCELLED";
-	
+		
 	private int id;
 	private String bookingNumber;
 	private String bookingDate;
