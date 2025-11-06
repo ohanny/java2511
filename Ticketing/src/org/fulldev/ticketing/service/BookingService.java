@@ -6,6 +6,24 @@ import org.fulldev.ticketing.model.Ticket;
 
 public class BookingService { // stateless
 	
+	private final static Event[] EVENTS = new Event[] {
+		new Event(1, "Pièce de théâtre'Le Misanthrope'", "2025-10-24 20:30:00", 20),
+		new Event(2, "ConférenceTech & Innovation", "2025-10-28 14:00:00", 23)
+	};
+	
+	private final static Ticket[] TICKETS = new Ticket[] {
+		new Ticket(EVENTS[0], new Customer(1, "Émile", "Lampion", "emile@example.com")),
+		new Ticket(EVENTS[1], new Customer(1, "Émile", "Lampion", "emile@example.com")),
+		new Ticket(EVENTS[1], new Customer(2, "Adèle", "Blanc-Sec", "adele@example.com"))
+	};
+	
+	private final static Booking[] BOOKINGS = new Booking[] {
+		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), new Ticket[] { TICKETS[0] }, "2025-09-27 10:52:15", "RES-1", Booking.STATUS_BOOKED),
+		new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), new Ticket[] { TICKETS[1] }, "2025-10-04 15:02:31", "RES-2", Booking.STATUS_BOOKED),
+		new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), new Ticket[] { TICKETS[2] }, "2025-10-05 08:14:17", "RES-3", Booking.STATUS_BOOKED)
+	};
+	
+	
 	/*
 	Booking bookTicket(Event event, Customer customer) {
         Ticket ticket = new Ticket(event, customer);

@@ -5,19 +5,20 @@ import org.fulldev.ticketing.model.Event;
 import org.fulldev.ticketing.model.Ticket;
 import org.fulldev.ticketing.service.BookingService;
 
-public class BookTicketView {
-	private String title = "Réserver un billet";
-	
+public class BookTicketView extends BaseView {
+
+	public BookTicketView() {
+		super("Réserver un billet");
+	}
+
 	public static void showHelp() {
 		System.out.println("Page de réservation d'un billet.");
 		System.out.println("Veuillez sélectionner un événement et renseigner votre nom.");
 	}
 	
+	@Override
 	public void show() {
-		// afficher le titre
-		System.out.println("-----------------------------------");
-		System.out.println(title);
-		System.out.println("-----------------------------------");
+		super.show();
 		
 		// saisie utilisateur
 		Event javaDay = new Event();

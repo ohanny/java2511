@@ -1,18 +1,23 @@
 package org.fulldev.ticketing;
 import org.fulldev.ticketing.view.BookTicketView;
+import org.fulldev.ticketing.view.BookingListView;
+import org.fulldev.ticketing.view.ViewManager;
 
 public class TicketApp {
 	public static void main(String[] args) {
+		ViewManager manager = new ViewManager();
+		manager.showView(new BookTicketView());
+		manager.showView(new BookingListView());
+		
+		/*
 		BookTicketView.showHelp();
 		
-		BookTicketView view = new BookTicketView();
-		view.show();
+		BookTicketView view1 = new BookTicketView();
+		BookingListView view2 = new BookingListView();
 		
-		
-		
-		System.out.println("pomme");
-		System.out.println(99);
-		System.out.println(true);
+		view1.show();
+		view2.show();
+		*/
 	}
 	
 	/*

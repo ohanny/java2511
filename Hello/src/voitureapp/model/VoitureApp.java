@@ -7,7 +7,36 @@ import java.util.Scanner;
 
 public class VoitureApp {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
+		Voiture v1 = new Voiture("Yaris", "vert", 5);
+		Voiture v2 = new Voiture("Yaris", "vert", 5);
+		
+		boolean voitureIdentique = v1 == v2;
+		//boolean voitureIdentique = v1.equals(v2);
+		
+		System.out.println(voitureIdentique);
+		
+		
+		//Vehicule veh = new Avion("A320");
+		Vehicule veh = new Voiture();
+		
+		Voiture voit = (Voiture)veh;
+		
+		System.out.println(voit);
+		
+		//v1.equals(v2);
+		
+		
+		String fruit1 = "Pomme";
+		String fruit2 = new String("Pomme");
+		
+		System.out.println("String égales ?");
+		boolean pomme = fruit1.equals(fruit2);
+		System.out.println(pomme);
+	}
+	
+	
+	public static void main_(String[] args) throws Exception {
 		
 		Voiture v1 = new Voiture();
 		
@@ -47,12 +76,12 @@ public class VoitureApp {
 		Voiture[] voituresBis = new Voiture[] { v1, v2 };
 		
 		
-		String texte = "La Terre, le Ciel et le Soleil";
-		
-		String[] words = texte.split(" ");
-		for (String word : words) {
-			//System.out.println(word);
-		}
+//		String texte = "La Terre, le Ciel et le Soleil";
+//		
+//		String[] words = texte.split(" ");
+//		for (String word : words) {
+//			//System.out.println(word);
+//		}
 		
 		
 //		Event javaDay = new Event();
@@ -77,19 +106,19 @@ public class VoitureApp {
 //        System.out.println("Date : " + booking.bookingDate);
 
 
-		System.out.println("--------------------------------------");
-		
-		v1.rouler();
-		
-		
-		Avion avion = new Avion("A320");
-		avion.rouler();
-		
-		avion.setAltitude(10);
-		avion.rouler();
-		
-		Cabriolet cab = new Cabriolet();
-		cab.avancer();
+//		System.out.println("--------------------------------------");
+//		
+//		v1.rouler();
+//		
+//		
+//		Avion avion = new Avion("A320");
+//		avion.rouler();
+//		
+//		avion.setAltitude(10);
+//		avion.rouler();
+//		
+//		Cabriolet cab = new Cabriolet();
+//		cab.avancer();
 	}
 	
 }
