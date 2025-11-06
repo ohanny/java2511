@@ -1,5 +1,7 @@
 package org.fulldev.ticketing.model;
 
+import java.util.Objects;
+
 public class Customer {
 	private int id;
 	private String firstName;
@@ -17,7 +19,17 @@ public class Customer {
 		this.lastName = lastName;
 		this.email = email;
 	}
-	
+
+		
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		Customer other = (Customer) obj;
+		return id == other.id;
+	}
+
 	public int getId() {
 		return id;
 	}

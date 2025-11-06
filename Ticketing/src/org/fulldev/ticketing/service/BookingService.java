@@ -1,4 +1,6 @@
 package org.fulldev.ticketing.service;
+import java.util.Arrays;
+
 import org.fulldev.ticketing.model.Booking;
 import org.fulldev.ticketing.model.Customer;
 import org.fulldev.ticketing.model.Event;
@@ -42,6 +44,7 @@ public class BookingService { // stateless
 	}
 	*/
 	
+	/*
 	public Booking[] findBookingByCustomer(int customerId) {
 		Customer cust1 = new Customer(customerId, "Émile", "Lampion", "emile@example.com");
 		Event event1 = new Event(1, "Pièce de théâtre'Le Misanthrope'", "2025-10-24 20:30:00", 20);
@@ -54,7 +57,30 @@ public class BookingService { // stateless
 	
 		return bookings;
 	}
+	*/
 
+	public Booking[] findBookingByCustomer(int customerId) {
+		Booking[] bookings = new Booking[BOOKINGS.length];
+		int count = 0;
+		for (Booking b : BOOKINGS) {
+			if (b.getCustomer().getId() == customerId) {
+				bookings[count++] = b;
+			}
+		}
+		return Arrays.copyOf(bookings, count);
+	}
+	
+	public Booking[] findBookingByCustomer(Customer customer) {
+		Booking[] bookings = new Booking[BOOKINGS.length];
+		int count = 0;
+		for (Booking b : BOOKINGS) {
+			if (b.getCustomer().equals(customer)) {
+				bookings[count++] = b;
+			}
+		}
+		return Arrays.copyOf(bookings, count);
+	}
+	
 	public Booking bookTicket(Event event, Customer customer) {		
 		return bookTickets(event, customer, 1);
 	}

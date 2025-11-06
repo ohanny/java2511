@@ -8,6 +8,15 @@ import java.util.Scanner;
 public class VoitureApp {
 
 	public static void main(String[] args) {
+		Country c1 = new Country("fr", "France");
+		Country2 c2 = new Country2("fr", "France");
+		
+		String code1 = c1.getCode();
+		String code2 = c2.code();
+		
+	}
+	
+	public static void main2(String[] args) {
 		Voiture v1 = new Voiture("Yaris", "vert", 5);
 		Voiture v2 = new Voiture("Yaris", "vert", 5);
 		
