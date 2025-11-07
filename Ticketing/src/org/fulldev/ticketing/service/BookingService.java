@@ -72,28 +72,26 @@ public class BookingService { // stateless
 	}
 	*/
 
-	public Booking[] findBookingByCustomer(int customerId) {
-		Booking[] bookings = new Booking[BOOKINGS.length];
-		int count = 0;
+	public List<Booking> findBookingByCustomer(int customerId) {
+		List<Booking> bookings = new ArrayList<>();
 		for (Booking b : BOOKINGS) {
 			if (b.getCustomer().getId() == customerId) {
-				bookings[count++] = b;
+				bookings.add(b);
 			}
 		}
-		return Arrays.copyOf(bookings, count);
+		return bookings;
 	}
 	
-	public Booking[] findBookingByCustomer(Customer customer) {
+	public List<Booking> findBookingByCustomer(Customer customer) {
 		System.err.println("Recherche des résa pour : " + customer);
 		
-		Booking[] bookings = new Booking[BOOKINGS.length];
-		int count = 0;
+		List<Booking> bookings = new ArrayList<>();
 		for (Booking b : BOOKINGS) {
 			if (b.getCustomer().equals(customer)) {
-				bookings[count++] = b;
+				bookings.add(b);
 			}
 		}
-		return Arrays.copyOf(bookings, count);
+		return bookings;
 	}
 	
 	public Booking bookTicket(Event event, Customer customer) throws BookingException {		

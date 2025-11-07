@@ -1,16 +1,31 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 public class FruitApp {
 
 	public static void main(String[] args) {
+		List<Fruit> fruits = new ArrayList<>();
+		
+		fruits.add(new Fruit(1, "Pomme"));
+		fruits.add(new Fruit(3, "Kiwi"));
+		fruits.add(new Fruit(2, "Orange"));
+		
+		Collections.sort(fruits); //----> ["Kiwi", "Orange", "Pomme"]
+		
+		System.out.println(fruits);
+	}
+	
+	public static void main3(String[] args) {
 		//List<String> fruits = List.of(new String[] {"pomme", "kiwi", "poire", "ddd"});
 		List<String> fruits = List.of("pomme", "kiwi", "poire", "ddd");
 		
 		List<String> fruits2 = Arrays.asList("pomme", "kiwi", "poire", "ddd");
+		
+		Collections.sort(fruits);
 	}
 	
 	public static void main2(String[] args) {

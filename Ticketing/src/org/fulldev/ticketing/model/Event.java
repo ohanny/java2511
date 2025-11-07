@@ -1,5 +1,7 @@
 package org.fulldev.ticketing.model;
 
+import java.util.Objects;
+
 import org.fulldev.ticketing.exception.InvalidPriceException;
 
 public class Event {
@@ -18,6 +20,30 @@ public class Event {
 		this.name = name;
 		this.scheduledAt = scheduledAt;
 		this.price = price;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Event other = (Event) obj;
+		return id == other.id;
+	}
+
+	
+	
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", name=" + name + ", scheduledAt=" + scheduledAt + ", price=" + price + "]";
 	}
 
 	public double getPrice() {

@@ -1,5 +1,7 @@
 package org.fulldev.ticketing.view;
 
+import java.util.List;
+
 import org.fulldev.ticketing.model.Booking;
 import org.fulldev.ticketing.model.Customer;
 import org.fulldev.ticketing.service.BookingService;
@@ -25,7 +27,7 @@ public class BookingListView extends BaseView {
 		// récupérer les réservations de l'utilisateur
 		BookingService service = new BookingService();
 		//Booking[] bookings = service.findBookingByCustomer(1);
-		Booking[] bookings = service.findBookingByCustomer(cust);
+		List<Booking> bookings = service.findBookingByCustomer(cust);
 		
 		// afficher les réservations
 		for (Booking b : bookings) {

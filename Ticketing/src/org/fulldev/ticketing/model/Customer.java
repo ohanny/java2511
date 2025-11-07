@@ -26,13 +26,23 @@ public class Customer {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (getClass() != obj.getClass()) return false;
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
 		Customer other = (Customer) obj;
-		return id == other.id;
+		return Objects.equals(email, other.email);
 	}
 
 	public int getId() {
