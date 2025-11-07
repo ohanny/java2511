@@ -1,5 +1,6 @@
 package org.fulldev.ticketing.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ public class Booking {
 		
 	private int id;
 	private String bookingNumber;
-	private String bookingDate;
+	private LocalDateTime bookingDate;
 	private BookingStatus status;
 
 	private Event event;
@@ -20,7 +21,7 @@ public class Booking {
 		super();
 	}
 
-	public Booking(int id, Customer customer, Event event, List<Ticket> tickets,  String bookingDate, String bookingNumber, BookingStatus status) {
+	public Booking(int id, Customer customer, Event event, List<Ticket> tickets,  LocalDateTime bookingDate, String bookingNumber, BookingStatus status) {
 		super();
 		this.id = id;
 		this.bookingNumber = bookingNumber;
@@ -51,10 +52,10 @@ public class Booking {
 	public void setBookingNumber(String bookingNumber) {
 		this.bookingNumber = bookingNumber;
 	}
-	public String getBookingDate() {
+	public LocalDateTime getBookingDate() {
 		return bookingDate;
 	}
-	public void setBookingDate(String bookingDate) {
+	public void setBookingDate(LocalDateTime bookingDate) {
 		this.bookingDate = bookingDate;
 	}
 	public BookingStatus getStatus() {

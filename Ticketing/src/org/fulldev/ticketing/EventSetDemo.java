@@ -1,5 +1,6 @@
 package org.fulldev.ticketing;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,9 +13,9 @@ public class EventSetDemo {
 		
 		List<Event> eventsAvecDoublons = new ArrayList();
 		
-		Event e1 = new Event(1, "Salon de la Gastronomie", "2025-10-12 14:00", 10.0);
-		Event e2 = new Event(1, "Salon de la Gastronomie", "2025-10-12 14:00", 10.0);
-		Event e3 = new Event(2, "Conférence Tech & Innovation", "2025-10-28 09:00", 15.0);
+		Event e1 = new Event(1, "Salon de la Gastronomie", LocalDateTime.now(), 10.0);
+		Event e2 = new Event(1, "Salon de la Gastronomie", LocalDateTime.now(), 10.0);
+		Event e3 = new Event(2, "Conférence Tech & Innovation", LocalDateTime.now(), 15.0);
 		
 		eventsAvecDoublons.add(e1);
 		eventsAvecDoublons.add(e2);
@@ -30,9 +31,9 @@ public class EventSetDemo {
 	public static void main_(String[] args) {
 		Set<Event> events = new HashSet<>();
 		
-		Event e1 = new Event(1, "Salon de la Gastronomie", "2025-10-12 14:00", 10.0);
-		Event e2 = new Event(1, "Salon de la Gastronomie", "2025-10-12 14:00", 10.0);
-		Event e3 = new Event(2, "Conférence Tech & Innovation", "2025-10-28 09:00", 15.0);
+		Event e1 = new Event(1, "Salon de la Gastronomie", LocalDateTime.now(), 10.0);
+		Event e2 = new Event(1, "Salon de la Gastronomie", LocalDateTime.now(), 10.0);
+		Event e3 = new Event(2, "Conférence Tech & Innovation", LocalDateTime.now(), 15.0);
 		
 		events.add(e1);
 		events.add(e2);

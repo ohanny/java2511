@@ -1,4 +1,6 @@
 package org.fulldev.ticketing.view;
+import java.time.LocalDateTime;
+
 import org.fulldev.ticketing.exception.BookingException;
 import org.fulldev.ticketing.model.Booking;
 import org.fulldev.ticketing.model.Customer;
@@ -27,7 +29,8 @@ public class BookTicketView extends BaseView {
 	        javaDay.setName("Java Day");
 	        javaDay.setId(23);
 	        javaDay.setPrice(15.0);
-	        javaDay.setScheduledAt("2025-12-20 14:00");
+	        //javaDay.setScheduledAt("2025-12-20 14:00");
+	        javaDay.setScheduledAt(LocalDateTime.of(2025,12,20,14,0));
 	
 	        Customer cust = new Customer();
 	        cust.setId(27);

@@ -1,5 +1,6 @@
 package org.fulldev.ticketing.model;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import org.fulldev.ticketing.exception.InvalidPriceException;
@@ -7,14 +8,14 @@ import org.fulldev.ticketing.exception.InvalidPriceException;
 public class Event {
 	private int id;
 	private String name;
-	private String scheduledAt;
+	private LocalDateTime scheduledAt;
 	private double price;
 	
 	public Event() {
 		super();
 	}
 
-	public Event(int id, String name, String scheduledAt, double price) {
+	public Event(int id, String name, LocalDateTime scheduledAt, double price) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -77,11 +78,11 @@ public class Event {
 		this.name = name;
 	}
 
-	public String getScheduledAt() {
+	public LocalDateTime getScheduledAt() {
 		return scheduledAt;
 	}
 
-	public void setScheduledAt(String scheduledAt) {
+	public void setScheduledAt(LocalDateTime scheduledAt) {
 		this.scheduledAt = scheduledAt;
 	}
 	

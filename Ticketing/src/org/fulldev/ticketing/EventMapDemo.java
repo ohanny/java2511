@@ -1,5 +1,6 @@
 package org.fulldev.ticketing;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,9 +13,9 @@ import org.fulldev.ticketing.model.Event;
 public class EventMapDemo {
 
 	public static void main(String[] args) {
-		Event e1 = new Event(1, "Salon de la Gastronomie", "2025-10-12 14:00", 10.0);
-		Event e2 = new Event(1, "Salon de la Gastronomie", "2025-10-12 14:00", 10.0);
-		Event e3 = new Event(2, "Conférence Tech & Innovation", "2025-10-28 09:00", 15.0);
+		Event e1 = new Event(1, "Salon de la Gastronomie", LocalDateTime.now(), 10.0);
+		Event e2 = new Event(1, "Salon de la Gastronomie", LocalDateTime.now(), 10.0);
+		Event e3 = new Event(2, "Conférence Tech & Innovation", LocalDateTime.now(), 15.0);
 		
 		Map<Integer, Event> events = new HashMap<>();
 		events.put(e1.getId(), e1);
@@ -56,9 +57,9 @@ public class EventMapDemo {
 		entiers.add(i);
 		
 		
-		Event e1 = new Event(1, "Salon de la Gastronomie", "2025-10-12 14:00", 10.0);
-		Event e2 = new Event(1, "Salon de la Gastronomie", "2025-10-12 14:00", 10.0);
-		Event e3 = new Event(2, "Conférence Tech & Innovation", "2025-10-28 09:00", 15.0);
+		Event e1 = new Event(1, "Salon de la Gastronomie", LocalDateTime.now(), 10.0);
+		Event e2 = new Event(1, "Salon de la Gastronomie", LocalDateTime.now(), 10.0);
+		Event e3 = new Event(2, "Conférence Tech & Innovation", LocalDateTime.now(), 15.0);
 		
 		Map<Integer, Event> map = new HashMap<>();
 		map.put(e1.getId(), e1);

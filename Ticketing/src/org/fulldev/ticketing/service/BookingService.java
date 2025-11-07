@@ -1,4 +1,5 @@
 package org.fulldev.ticketing.service;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,9 +16,9 @@ import org.fulldev.ticketing.printer.TicketPrinter;
 
 public class BookingService { // stateless
 	
-	private final static Event[] EVENTS = new Event[] {
-		new Event(1, "Pièce de théâtre'Le Misanthrope'", "2025-10-24 20:30:00", 20),
-		new Event(2, "ConférenceTech & Innovation", "2025-10-28 14:00:00", 23)
+	private final static Event[] EVENTS = new Event[] {               
+		new Event(1, "Pièce de théâtre'Le Misanthrope'", LocalDateTime.of(2025, 10, 24, 20, 30), 20), // // "2025-10-24 20:30:00"
+		new Event(2, "ConférenceTech & Innovation", LocalDateTime.of(2025, 10, 28, 14, 0), 23) // "2025-10-28 14:00:00"
 	};
 	
 	private final static Ticket[] TICKETS = new Ticket[] {
@@ -27,9 +28,9 @@ public class BookingService { // stateless
 	};
 	
 	private final static Booking[] BOOKINGS = new Booking[] {
-		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), List.of(TICKETS[0]), "2025-09-27 10:52:15", "RES-1", BookingStatus.STATUS_PAID),
-		new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), List.of(TICKETS[1]), "2025-10-04 15:02:31", "RES-2", BookingStatus.STATUS_BOOKED),
-		new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), List.of(TICKETS[2]), "2025-10-05 08:14:17", "RES-3", BookingStatus.STATUS_BOOKED)
+		new Booking(1, TICKETS[0].getCustomer(), TICKETS[0].getEvent(), List.of(TICKETS[0]), LocalDateTime.of(2025,9,27,10,52,15), "RES-1", BookingStatus.STATUS_PAID),
+		new Booking(2, TICKETS[1].getCustomer(), TICKETS[1].getEvent(), List.of(TICKETS[1]), LocalDateTime.of(2025,10,4,15,2,31), "RES-2", BookingStatus.STATUS_BOOKED),
+		new Booking(3, TICKETS[2].getCustomer(), TICKETS[2].getEvent(), List.of(TICKETS[2]), LocalDateTime.of(2025,10,5,8,14,17), "RES-3", BookingStatus.STATUS_BOOKED)
 	};
 	
 //	private final static Booking[] BOOKINGS = new Booking[] {
@@ -135,7 +136,8 @@ public class BookingService { // stateless
 		Booking booking = new Booking();
         booking.setId(1);
         booking.setBookingNumber("RES-012");
-        booking.setBookingDate("2025-11-04 14:24");
+        //booking.setBookingDate("2025-11-04 14:24");
+        booking.setBookingDate(LocalDateTime.now());
         booking.setEvent(event);
         booking.setCustomer(customer);
         booking.setStatus(BookingStatus.STATUS_BOOKED);

@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,6 +27,9 @@ public class FruitApp {
 		for (Fruit fruit : fruits) {
 			System.out.println(fruit);
 		}
+		
+		
+		System.out.println(new Date());
 	}
 	
 	public static void main4(String[] args) {
