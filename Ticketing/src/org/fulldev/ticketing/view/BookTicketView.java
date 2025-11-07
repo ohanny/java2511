@@ -1,5 +1,6 @@
 package org.fulldev.ticketing.view;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.fulldev.ticketing.exception.BookingException;
 import org.fulldev.ticketing.model.Booking;
@@ -51,7 +52,11 @@ public class BookTicketView extends BaseView {
 	        System.out.println("Ticket n° " +  booking.getBookingNumber() + " pour " + booking.getEvent().getName());
 	        System.out.println("Client : " + booking.getCustomer().getFirstName() + " " + booking.getCustomer().getLastName());
 	        System.out.println("Statut : " + booking.getStatus());
-	        System.out.println("Date : " + booking.getBookingDate());
+	        
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+	        
+	        //System.out.println("Date : " + booking.getBookingDate());
+	        System.out.println("Date : " + formatter.format(booking.getBookingDate()));
 	        
 	        System.out.println("Prix de l'événement : " + javaDay.getPrice());
 	        
