@@ -16,8 +16,8 @@ public class Fruit implements Comparable<Fruit> {
 
 	@Override
 	public int compareTo(Fruit f) {
-		//return name.compareTo(f.name);
-		return this.id - f.id;
+		return -name.compareTo(f.name);
+		//return - this.id + f.id;
 	}
 	
 	@Override
@@ -35,6 +35,22 @@ public class Fruit implements Comparable<Fruit> {
 			return false;
 		Fruit other = (Fruit) obj;
 		return id == other.id && Objects.equals(name, other.name);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

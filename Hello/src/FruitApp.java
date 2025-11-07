@@ -10,6 +10,27 @@ public class FruitApp {
 	public static void main(String[] args) {
 		List<Fruit> fruits = new ArrayList<>();
 		
+		fruits.add(new Fruit(9, "Pomme"));
+		fruits.add(new Fruit(3, "Kiwi"));
+		fruits.add(new Fruit(1, "Pomme"));
+		fruits.add(new Fruit(2, "Orange"));
+		
+		System.out.println("Tri par id");
+		Collections.sort(fruits, new FruitComparatorById());
+		for (Fruit fruit : fruits) {
+			System.out.println(fruit);
+		}
+		
+		System.out.println("\nTri par name, puis id si nécessaire");
+		Collections.sort(fruits, new FruitComparatorByNameAndId());
+		for (Fruit fruit : fruits) {
+			System.out.println(fruit);
+		}
+	}
+	
+	public static void main4(String[] args) {
+		List<Fruit> fruits = new ArrayList<>();
+		
 		fruits.add(new Fruit(1, "Pomme"));
 		fruits.add(new Fruit(3, "Kiwi"));
 		fruits.add(new Fruit(2, "Orange"));
